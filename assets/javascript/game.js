@@ -14,6 +14,10 @@ $("#start").on("click" , function () {
     startGame(); 
 });
 
+$("#reset").on("click" , function () {
+    resetAll(); 
+});
+
 $("#ruby").on("click" , function () {
     clickRuby();
 });
@@ -77,7 +81,25 @@ function winGame () {
     // updateWin
     //$("#playerwins").text("  " + winInt);
     $("#winloss").text("You Win!");
-    
+}
+
+function resetAll () {
+    var diamondInt = 0; 
+    var rubyInt = 0;
+    var emeraldInt = 0;
+    var sapphireInt = 0;
+    var displayNumberInt = 0;
+    var playerScoreInt = 0; 
+    var winInt = 0; 
+    var lossInt = 0; 
+    var winValuesArr =[];
+    var lossValuesArr =[];
+    var continueValuesArr =[];
+    $("#playerloss").text("  " + lossInt);
+    $("#playerwins").text("  " + winInt);
+    $("#playerscore").text("  " + playerScoreInt);
+    $("#displaynum").text(" " + displayNumberInt);
+    $("#winloss").text("Click Start to Begin!");
 }
 
 
@@ -239,31 +261,3 @@ function clickSapphire () {
         return continueValues = [playerScoreInt, continueGame()]
     }
 }
-/*
-function resetFields () {
-console.log("updateFields");
-$("#displaynum").text(" " + displayNumberInt);
-$("#sapphirenum").text(" " + sapphireInt);
-$("#rubynum").text(" " + rubyInt);
-$("#diamondnum").text(" " + diamondInt);
-$("#emeraldnum").text(" " + emeraldInt);
-$("#playerscore").text(" " + playerScoreInt);
-$("#playerwins").text(" " + winInt);
-$("#playerloss").text(" " + lossInt);
-}
-
-<!-- for testing purposes
-<div class="row"> 
-<div class="col-md-12">
-<br>
-<p>Target #: <span id="displaynum">Undefined</span></p>
-<p>Sapphire # : <span id="sapphirenum">Undefined</span></p>
-<p>Ruby # : <span id="rubynum">Undefined</span></p>
-<p>Diamond # : <span id="diamondnum">Undefined</span></p>
-<p>Emerald # : <span id="emeraldnum">Undefined</span></p>
-<p>Player Score: <span id="playerscore">Undefined</span></p>
-<p>Player Wins: <span id="playerwins">Undefined</span></p>
-<p>Player Losses: <span id="playerloss">Undefined</span></p>
-</div>
-</div>
-*/

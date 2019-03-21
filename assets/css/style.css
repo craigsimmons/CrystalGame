@@ -1,6 +1,4 @@
-* {
-  border: 1px solid green !important;
-}
+
 
   .line {
     border: 5px solid blue;
@@ -30,7 +28,7 @@
 .fontbold {
   font-weight: 900;
   }
-   
+
   .imgcenter {
     text-align: center;
     vertical-align: center;
