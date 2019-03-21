@@ -3,9 +3,7 @@ var diamondInt = 0;
 var rubyInt = 0;
 var emeraldInt = 0;
 var sapphireInt = 0;
-
 var numValuesArr = [];
-
 // Holds random number to display to player
 var displayNumberInt = 0;
 // Holds player's accumulated score during game
@@ -14,31 +12,73 @@ var runningScoreInt = 0;
 var winInt = 0;
 var lossInt = 0;
 
-$("#start").click(startGame() );
-//$("#start").on("click" , startGame() );
+$("#start").on("click" , function () {
+    startGame(); //
+});
 
-$("#ruby").on("click" , clickRuby() );
-$("#emerald").on("click" , clickEmerald() );
-$("#diamond").on("click" , clickDiamond() );
-$("#sapphire").on("click" , clickSapphire() );
+$("#ruby").on("click" , function () {
+    clickRuby();
+});
 
-//$("#ruby").click(clickRuby() );
-//$("#emerald").click(clickEmerald() );
-//$("#diamond").click(clickDiamond() );
-//$("#sapphire").click(clickSapphire() );
+$("#emerald").on("click" , function () {
+    clickEmerald();
+});
 
+$("#diamond").on("click" , function () {
+    clickDiamond();
+});
 
+$("#sapphire").on("click" , function () {
+    clickSapphire();
+});
 
-// used Math.floor(Math.random() * (max# - min# + 1) + min# pattern
+function startGame () {
+    console.log("startGame");
+    generateNumValues();
+    $("#emerald").on("click" , clickEmerald() );
+    $("#diamond").on("click" , clickDiamond() );
+    $("#ruby").on("click" , clickRuby() );
+    $("#sapphire").on("click" , clickSapphire() );
+}
+
+function continueGame () {
+    console.log("continueGame");
+    console.log("Wins: " + winInt);
+    console.log("Loss: " + lossInt);
+    $("#playerwins").text("  " + winInt);
+    $("#playerloss").text("  " + lossInt);
+
+    $("#emerald").on("click" , clickEmerald() );
+    $("#diamond").on("click" , clickDiamond() );
+    $("#ruby").on("click" , clickRuby() );
+    $("#sapphire").on("click" , clickSapphire() );
+
+ 
+}
+
+function endGame () {
+    console.log("endGame");
+    diamondInt = 0;
+    rubyInt = 0;
+    emeraldInt = 0;
+    sapphireInt = 0;
+    numValuesArr = [];
+    displayNumberInt = 0;
+    playerScoreInt = 0;
+    runningScoreInt = 0;
+    winInt = 0;
+    lossInt = 0;
+    $("#winloss").text("Goodbye!");
+}
+// used Math.floor(Math.random() * (max# - min# + 1) + min# pattern to gennerate rand#s)
 function generateNumValues() {
     console.log("generateNumValues")
-    diamondInt = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    rubyInt = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    sapphireInt = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    emeraldInt = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    displayNumberInt = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-    numValuesArr = [rubyInt, emeraldInt, diamondInt, sapphireInt]
-
+    diamondInt = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    rubyInt = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    sapphireInt = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    emeraldInt = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
+    displayNumberInt = (Math.floor(Math.random() * (120 - 19 + 1)) + 19);
+    numValuesArr = [rubyInt, emeraldInt, diamondInt, sapphireInt];
     console.log("diamond: " + diamondInt);
     console.log("rubyNum: " + rubyInt);
     console.log("sapphireNum: " + sapphireInt);
@@ -57,44 +97,6 @@ function updateFields () {
     $("#playerscore").text("  " + playerScoreInt);
     $("#playerwins").text("  " + winInt);
     $("#playerloss").text("  " + lossInt);
-}
-
-function startGame () {
-    console.log("startGame")
-    generateNumValues();
-    $("#ruby").click(clickRuby() ); // ?????
-    $("#emerald").click(clickEmerald() );
-    $("#diamond").click(clickDiamond() );
-    $("#sapphire").click(clickSapphire() );
-}
-
-function continueGame () {
-    console.log("continueGame")
-    console.log("Wins: " + winInt);
-    console.log("Wins: " + lossInt);
-
-    $("#playerwins").text("  " + winInt);
-    $("#playerloss").text("  " + lossInt);
-
-    $("#ruby").click(clickRuby() );
-    $("#emerald").click(clickEmerald() );
-    $("#diamond").click(clickDiamond() );
-    $("#sapphire").click(clickSapphire() );
-}
-
-function endGame () {
-    console.log("endGame")
-    diamondInt = 0;
-    rubyInt = 0;
-    emeraldInt = 0;
-    sapphireInt = 0;
-    numValuesArr = [];
-    displayNumberInt = 0;
-    playerScoreInt = 0;
-    runningScoreInt = 0;
-    winInt = 0;
-    lossInt = 0;
-    $("#winloss").text("Goodbye!");
 }
 
 function clickRuby () {
@@ -130,7 +132,7 @@ function clickRuby () {
 
 function clickEmerald () {
     console.log("clickEmerald")
-    $("this").attr("class", "rounded-circle");
+    $("#emerald").attr("class", "rounded-circle");
     playerScoreInt += emeraldInt;
     $("#playerscore").text("  " + playerScoreInt); 
     if (playerScoreInt === displayNumberInt) {
@@ -158,6 +160,7 @@ function clickEmerald () {
         continueGame ();
     }
 }
+
 function clickDiamond () {
     console.log("clickDiamond")
     $("this").attr("class", "rounded-circle");
@@ -188,6 +191,7 @@ function clickDiamond () {
         continueGame ();
     }
 }
+
 function clickSapphire () {
     console.log("clickSapphire")
     $("this").attr("class", "rounded-circle");
