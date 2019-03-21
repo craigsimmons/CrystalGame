@@ -1,14 +1,49 @@
 * {
-    border: 1px solid red !important;
-    }
+  border: 1px solid red !important;
+}
 
-    .regfont {
-        font-family: Arial, Helvetica, sans-serif;
-      }
- /*   
-  #start {
+  .line {
+    border: 5px solid blue;
+  }
+  .setbasefont {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: blue; 
+  }
+
+  .bodybg {
+    background-color:blue
+  }
+  
+  .appbg {
+    background-color:lightblue;
+  }
+.fontsize {
+  font-size: 30px; 
+  line-height: 2;
+}
+
+.imgstyle {
+    border: 1px solid blue;
+    margin: 10px 20px 10px 20px;
+}
+
+.fontbold {
+  font-weight: 900;
+  }
+   
+  .imgcenter {
+    text-align: center;
+    vertical-align: center;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .centeralign {
+    display: inline;
+    text-align: center;
     vertical-align: center;
   }
-  */
+
 
     

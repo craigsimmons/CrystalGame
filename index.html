@@ -6,12 +6,7 @@
     <meta charset="UTF-8">
     <meta author="Craig Simmons">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--   
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script> 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    -->
     <script src="http://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -27,30 +22,50 @@
 
     
 </head>
-<body> <!--use Bootstrap 4 jumbotron    -->
+<body class="bodybg"> <!--use Bootstrap 4 jumbotron    -->
     <div class="container">
-        <div class="jumbotron">
-            <div class="row regfont">
+        <div class="jumbotron appbg">
+            <div class="row">
                 <div class="col-md-10">
-                    <h1 class="display-2">Crystal Collector</h1>
+                    <h1 class="display-2 setbasefont fontbold">Crystal Collector</h1>
                 </div>
-                <div class="h-100 col-md-2">
+                <div class="col-md-2 h-100 setbasefont">
                     <br><br>
-                    <button id="start" type="button" class="btn-lg btn-success">Start Game</button>
+                    <button id="start" type="button" role="button" class="imgcenter btn btn-lg btn-primary">Start Game</button>
                 </div>
             </div>
-            <div class="row regfont">
+            <div class="row">
+                    <div class="col-md-12"><hr class="line"></div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
-                
-                    <img id="ruby" class="img-responsive" src="assets/images/ruby.png" alt="Image of a ruby" height="200px" width="200px">
-                    <img id="emerald" class="img-responsive" src="assets/images/emerald.png" alt="Image of an emerald" height="200px" width="200px">
-                    <img id="diamond" class="img-responsive" src="assets/images/diamond.png" alt="Image of a diamond" height="200px" width="200px">
-                    <img id="sapphire" class="img-responsive" src="assets/images/sapphire.png" alt="Image of a sapphire" height="200px" width="200px">
+                    <div class="imgcenter">
+                        <img class="imgstyle rounded-circle" id="ruby" role="button" src="assets/images/ruby.png" alt="Image of a ruby" height="200px" width="200px">
+                        <img class="imgstyle rounded-circle" id="emerald" role="button" src="assets/images/emerald.png" alt="Image of an emerald" height="200px" width="200px">
+                        <img class="imgstyle rounded-circle" id="diamond" role="button" src="assets/images/diamond.png" alt="Image of a diamond" height="200px" width="200px">
+                        <img class="imgstyle rounded-circle" id="sapphire" role="button" src="assets/images/sapphire.png" alt="Image of a sapphire" height="200px" width="200px">
+                    </div>
                 </div>
             </div>
-            <div class="row regfont">
+            <div class="row">
+                    <div class="col-md-6">
+                        <p class="fontsize setbasefont"><span class="fontbold">Target #: </span>  <span id="displaynum">Undefined</span></p>
+                        <p class="fontsize setbasefont"><span class="fontbold">Player's #: </span>  <span id="playerscore">Undefined</span></p>
+                        <p class="fontsize setbasefont"><span class="fontbold">Total Wins: </span>  <span id="playerwins">0</span></p>
+                        <p class="fontsize setbasefont"><span class="fontbold">Total Losses: </span>  <span id="playerloss">0</span></p>
+                        
+                    </div>
+                    <div class="col-md-6 centeralign">
+                        <br><br><br>
+                        <p class="centeralign setbasefont fontbold display-3"> <span id="winloss">Undefined</span></p>
+                    </div>
+            </div>
+
+
+
+            <div class="row"> <!-- For TESTING ONLY-->
                     <div class="col-md-12">
-                        <br><br><br><br><br>
+                        <br>
                         <p>Target #: <span id="displaynum">Undefined</span></p>
                         <p>Sapphire # : <span id="sapphirenum">Undefined</span></p>
                         <p>Ruby # : <span id="rubynum">Undefined</span></p>
@@ -59,8 +74,6 @@
                         <p>Player Score: <span id="playerscore">Undefined</span></p>
                         <p>Player Wins: <span id="playerwins">Undefined</span></p>
                         <p>Player Losses: <span id="playerloss">Undefined</span></p>
-                        <p class="display-2">Are you a winner?  <span id="winloss">Undefined</span></p>
-                        <br><br><br><br><br>
                     </div>
                 </div>
         </div>
