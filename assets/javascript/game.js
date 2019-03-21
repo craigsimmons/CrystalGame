@@ -10,6 +10,7 @@ var numValuesArr = [];
 var displayNumberStr = "";
         // Holds player's accumulated score during game
 var playerScoreStr = "0";
+var runningScoreStr = "0"
 var winStr = "0";
 var lossStr ="0";
 
@@ -46,9 +47,91 @@ $("#playerwins").text("  " + winStr);
 $("#playerloss").text("  " + lossStr);
 
 
-var diamondPic = $("img.diamond");
-var rubyPic = $("img.ruby");
-var emeraldPic = $("img.emerald");
-var sapphirePic = $("img.sapphire")
-for (var i = 0; i < numOptionsArr.length; i++)
-    crystalPic.attr("data-value", numOptionsArr[i])
+
+$("#diamond").on("click" , function() {
+    $("this").attr("class", "rounded-circle");
+    playerScoreStr += diamondStr;
+    $("#playerscore").text("  " + playerScoreStr); 
+    if (playerScoreStr === displayNumberStr) {
+        $("#playerscore").text("  " + playerScoreStr); 
+        $("#winloss").text("Winner!")
+        setTimeout($("#winloss").text(""), 3000);
+    }
+    else if (playerScoreStr > displayNumberStr) {
+            $("#playerscore").text("  " + playerScoreStr); 
+            $("#winloss").text("You Lose!")
+            setTimeout($("#winloss").text(""), 3000);
+    }
+    else {
+        $("#playerscore").text("  " + playerScoreStr); 
+        $("#winloss").text("Select Again")
+        setTimeout($("#winloss").text(""), 3000);
+        return playerScoreStr;
+    }
+});
+
+$("#ruby").on("click" , function() {
+    $("this").attr("class", "rounded-circle");
+    playerScoreStr += diamondStr;
+    $("#playerscore").text("  " + playerScoreStr); 
+    if (playerScoreStr === displayNumberStr) {
+        $("#playerscore").text("  " + playerScoreStr); 
+        $("#winloss").text("Winner!")
+        setTimeout($("#winloss").text(""), 3000);
+    }
+    else if (playerScoreStr > displayNumberStr) {
+            $("#playerscore").text("  " + playerScoreStr); 
+            $("#winloss").text("You Lose!")
+            setTimeout($("#winloss").text(""), 3000);
+    }
+    else {
+        $("#playerscore").text("  " + playerScoreStr); 
+        $("#winloss").text("Select Again")
+        setTimeout($("#winloss").text(""), 3000);
+        return playerScoreStr;
+    }
+});
+
+$("#emerald").on("click" , function() {
+    $("this").attr("class", "rounded-circle");
+    playerScoreStr += diamondStr;
+    $("#playerscore").text("  " + playerScoreStr); 
+    if (playerScoreStr === displayNumberStr) {
+        $("#playerscore").text("  " + playerScoreStr); 
+        $("#winloss").text("Winner!")
+        setTimeout($("#winloss").text(""), 3000);
+    }
+    else if (playerScoreStr > displayNumberStr) {
+            $("#playerscore").text("  " + playerScoreStr); 
+            $("#winloss").text("You Lose!")
+            setTimeout($("#winloss").text(""), 3000);
+    }
+    else {
+        $("#playerscore").text("  " + playerScoreStr); 
+        $("#winloss").text("Select Again")
+        setTimeout($("#winloss").text(""), 3000);
+        return playerScoreStr;
+    }
+});
+
+$("#sapphire").on("click" , function() {
+    $("this").attr("class", "rounded-circle");
+    playerScoreStr += diamondStr;
+    $("#playerscore").text("  " + playerScoreStr); 
+    if (playerScoreStr === displayNumberStr) {
+        $("#playerscore").text("  " + playerScoreStr); 
+        $("#winloss").text("Winner!")
+        setTimeout($("#winloss").text(""), 3000);
+    }
+    else if (playerScoreStr > displayNumberStr) {
+            $("#playerscore").text("  " + playerScoreStr); 
+            $("#winloss").text("You Lose!")
+            setTimeout($("#winloss").text(""), 3000);
+    }
+    else {
+        $("#playerscore").text("  " + playerScoreStr); 
+        $("#winloss").text("Select Again")
+        setTimeout($("#winloss").text(""), 3000);
+        return playerScoreStr;
+    }
+});
