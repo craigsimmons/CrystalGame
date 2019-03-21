@@ -6,36 +6,52 @@
     <meta charset="UTF-8">
     <meta author="Craig Simmons">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-            <!-- Latest compiled and minified Bootstrap4 css/js -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-        rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-        crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
-        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
-        crossorigin="anonymous"></script>
-            <!-- jQuery 3.3.1 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <!-- Latest compiled and minified Bootstrap4 css/js and jQuery 3.3.1 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
 
+    
 </head>
-<body>
+<body> <!--use Bootstrap 4 jumbotron    -->
     <div class="container">
-        <div class="jumbotron h-100">
-            <div class="row h-100">
-                <div class="col-md-8">
-                    <h1 class="display-2" >Crystal Collector</h1>
+        <div class="jumbotron">
+            <div class="row regfont">
+                <div class="col-md-10">
+                    <h1 class="display-2">Crystal Collector</h1>
                 </div>
-                <div class="col-md-4">
-                        <button id="start" type="button" class="btn btn-success">Start Game</button>
-                </div>
-            </div>
-            <div class="row h-100">
-                <div class="col-md-8">
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
+                        <button id="start" type="button" class="btn-lg btn-success">Start Game</button>
                 </div>
             </div>
+            <div class="row regfont">
+                <div class="col-md-12">
+                    <img src="assets/images/ruby.png" alt="Image of a ruby" height="250px" width="250px">
+                    <img src="assets/images/emerald.png" alt="Image of an emerald" height="250px" width="250px">
+                    <img src="assets/images/diamond.png" alt="Image of a diamond" height="250px" width="250px">
+                    <img src="assets/images/sapphire.png" alt="Image of a sapphire" height="250px" width="250px">
+                </div>
+            </div>
+            <div class="row regfont">
+                    <div class="col-md-12">
+                        <br><br><br><br><br>
+                        <p>Target #: <span id="displaynum">Undefined</span></p>
+                        <p>Sapphire # : <span id="sapphirenum">Undefined</span></p>
+                        <p>Ruby # : <span id="rubynum">Undefined</span></p>
+                        <p>Diamond # : <span id="diamondnum">Undefined</span></p>
+                        <p>Player Score: <span id="playerscore">Undefined</span></p>
+                        <p>Player Wins: <span id="playerwins">Undefined</span></p>
+                        <p>Player Losses: <span id="playerloss">Undefined</span></p>
+                        <br><br><br><br><br>
+                    </div>
+                </div>
         </div>
     </div>
     <script src="./assets/javascript/game.js"></script>   
