@@ -24,5 +24,6 @@ Crystal Collector
 
 WIll research solutions for v2
 
-craig@simmons.name 
+craig@simmons.name
+
 [Github Repository for this game:](https://github.com/craigsimmons/unit-4-game)
