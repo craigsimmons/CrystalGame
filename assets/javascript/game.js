@@ -6,9 +6,10 @@ var displayNumberInt = 0; // Holds random number to display to player
 var playerScoreInt = 0; // Holds player's accumulated score during game
 var winInt = 0; // game wins counter
 var lossInt = 0; // game loss counter
-var winValuesArr =[]; //array for returning multiple objects
-var lossValuesArr =[]; //array for returning multiple objects
-var continueValuesArr =[];//array for returning multiple objects
+
+var winValuesArr =[]; //array for returning multiple objects - 2 ints and a named function
+var lossValuesArr =[]; //array for returning multiple objects - 2 ints and a named function
+var continueValuesArr =[];//array for returning multiple objects -2 ints and a named function
 
 $("#start").on("click" , function () {
     startGame(); 
@@ -33,19 +34,8 @@ $("#diamond").on("click" , function () {
 $("#sapphire").on("click" , function () {
     clickSapphire();
 });
-/*
-function updateWins (winInt) {
-    $("#playerwins").text("  " + winInt);
-    return winInt;
-}
 
-function updateLoss (lossInt) {
-    $("#playerloss").text("  " + lossInt);
-    return lossInt;
-}
-*/
 function startGame () {
-    console.log("startGame");
     diamondInt = 0;
     rubyInt = 0;
     emeraldInt = 0;
@@ -60,26 +50,20 @@ function startGame () {
     generateNumValues();
     $("#playerscore").text("  " + playerScoreInt);
     $("#winloss").text("Select a Gem!");
-
 }
 
 function continueGame () {
-    console.log("continueGame");
-    console.log("Wins: " + winInt);
-    console.log("Loss: " + lossInt);
     $("#winloss").text("Select Again!");
   
 }
+
 function winGame () {
-    console.log("winGame");
     diamondInt = 0;
     rubyInt = 0;
     emeraldInt = 0;
     sapphireInt = 0;
     displayNumberInt = 0;
     playerScoreInt = 0;
-    // updateWin
-    //$("#playerwins").text("  " + winInt);
     $("#winloss").text("You Win!");
 }
 
@@ -98,27 +82,22 @@ function resetAll () {
     $("#playerloss").text("  " + lossInt);
     $("#playerwins").text("  " + winInt);
     $("#playerscore").text("  " + playerScoreInt);
-    $("#displaynum").text(" " + displayNumberInt);
+    $("#displaynum").text("  " + displayNumberInt);
     $("#winloss").text("Click Start to Begin!");
 }
 
-
 function loseGame () {
-    console.log("loseGame");
     diamondInt = 0;
     rubyInt = 0;
     emeraldInt = 0;
     sapphireInt = 0;
     displayNumberInt = 0;
     playerScoreInt = 0;
-    // updateLoss ();
-    // $("#playerloss").text("  " + lossInt);
     $("#winloss").text("You Lose!");
 }
 
 // used Math.floor(Math.random() * (max# - min# + 1) + min# pattern to gennerate rand#s)
 function generateNumValues() {
-    console.log("generateNumValues")
     diamondInt = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
     rubyInt = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
     sapphireInt = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
@@ -126,122 +105,89 @@ function generateNumValues() {
     displayNumberInt = (Math.floor(Math.random() * (120 - 19 + 1)) + 19);
     playerScoreInt = 0;
     $("#playerscore").text("  " + playerScoreInt); 
-    $("#displaynum").text(" " + displayNumberInt);
-    console.log("diamond: " + diamondInt);
-    console.log("rubyNum: " + rubyInt);
-    console.log("sapphireNum: " + sapphireInt);
-    console.log("emeraldNum: " + emeraldInt);
-    console.log("Display Number: " + displayNumberInt);
+    $("#displaynum").text("  " + displayNumberInt);
 }
 
 function clickRuby () {
-    console.log("clickRuby")
-    playerScoreInt += rubyInt;
-   console.log("ruby player score: " + playerScoreInt);
-
+    playerScoreInt = playerScoreInt + rubyInt;
+    
     if (playerScoreInt === displayNumberInt) {
-        console.log("Ruby playerwins")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("Winner!");
         winInt = winInt + 1;
         $("#playerwins").text("  " + winInt);
-        console.log("Ruby " + winInt + " " + playerScoreInt);
         return winValuesArr = [winInt, playerScoreInt, winGame()];
     }
     else if (playerScoreInt > displayNumberInt) {
-        console.log("Ruby playerloses")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("You Lose!");
         lossInt = lossInt + 1;
         $("#playerloss").text("  " + lossInt);
-        console.log("Ruby " + lossInt + " " + playerScoreInt);
         return lossValuesArr = [lossInt, playerScoreInt, loseGame()];
     }
     else {
-        console.log("Ruby keepgoing")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("Select Again")
-        console.log("Ruby (continue)" + playerScoreInt);
         return continueValuesArr = [playerScoreInt, continueGame()];
     }
 }
 
 function clickEmerald () {
-    console.log("clickEmerald")
-    playerScoreInt += emeraldInt;
-    console.log("emerald player score: " + playerScoreInt);
+    playerScoreInt = playerScoreInt + emeraldInt;
 
     if (playerScoreInt === displayNumberInt) {
-        console.log("Emerald playerwins")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("Winner!");
         winInt = winInt + 1;
         $("#playerwin").text("  " + winInt);
-        console.log("Emerald " + winInt + " " + playerScoreInt);
-        return winValuesArr = [winInt, playerScoreInt, winGame()]
+        return winValuesArr = [winInt, playerScoreInt, winGame()];
     }
     else if (playerScoreInt > displayNumberInt) {
-        console.log("Emerald playerloses")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("You Lose!");
         lossInt = lossInt + 1;
         $("#playerloss").text("  " + lossInt);
-        console.log("Emerald " + lossInt + " " + playerScoreInt);
-        return lossValuesArr = [lossInt, playerScoreInt, loseGame()]
+        return lossValuesArr = [lossInt, playerScoreInt, loseGame()];
     }
     else {
-        console.log("Emerald keepgoing")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("Select Again")
-        console.log("Emerald (continue)" + playerScoreInt);
-        return continueValues = [playerScoreInt, continueGame()]
+        return continueValues = [playerScoreInt, continueGame()];
     }
 }
 
 function clickDiamond () {
-    console.log("clickDiamond")
-    playerScoreInt += diamondInt;
-    console.log("Diamond player score: " + playerScoreInt);
+    playerScoreInt = playerScoreInt + diamondInt;
 
     if (playerScoreInt === displayNumberInt) {
-        console.log("Diamond playerwins")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("Winner!");
         winInt = winInt + 1;
         $("#playerwin").text("  " + winInt);
-        console.log("Diamond " + winInt + " " + playerScoreInt);
         return winValuesArr = [winInt, playerScoreInt, winGame()]
     }
     else if (playerScoreInt > displayNumberInt) {
-        console.log("Diamond playerloses")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("You Lose!");
         lossInt = lossInt + 1;
         $("#playerloss").text("  " + lossInt);
-        console.log("Diamond " + lossInt + " " + playerScoreInt);
         return lossValuesArr = [lossInt, playerScoreInt, loseGame()]
     }
     else {
-        console.log("Diamond keepgoing")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("Select Again")
-        console.log("Diamond (continue) " + playerScoreInt);
         return continueValues = [playerScoreInt, continueGame()]
     }
 }
 
 function clickSapphire () {
-    console.log("clickSapphire")
-    playerScoreInt += sapphireInt;
-    console.log("Saphire player score: " + playerScoreInt);
+    playerScoreInt = playerScoreInt + sapphireInt;
 
     if (playerScoreInt === displayNumberInt) {
-        console.log("Sapphire playerwins")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("Winner!");
         winInt = winInt + 1;
         $("#playerwin").text("  " + winInt);
-        console.log("Sapphire " + winInt + " " + playerScoreInt);
         return winValuesArr = [winInt, playerScoreInt, winGame()]
     }
     else if (playerScoreInt > displayNumberInt) {
@@ -250,14 +196,11 @@ function clickSapphire () {
         $("#winloss").text("You Lose!");
         lossInt = lossInt + 1;
         $("#playerloss").text("  " + lossInt);
-        console.log("Sapphire " + lossInt + " " + playerScoreInt);
         return lossValuesArr = [lossInt, playerScoreInt, loseGame()]
     }
     else {
-        console.log("Sapphire keepgoing")
         $("#playerscore").text("  " + playerScoreInt); 
         $("#winloss").text("Select Again")
-        console.log("Sapphire continue" + playerScoreInt);
         return continueValues = [playerScoreInt, continueGame()]
     }
 }
